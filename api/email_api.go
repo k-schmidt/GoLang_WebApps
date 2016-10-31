@@ -7,11 +7,8 @@ import (
 	"net/http"
 	"net/smtp"
 	"strings"
-)
 
-const (
-	EmailAddress  = ""
-	EmailPassword = ""
+	"./config"
 )
 
 type email_struct struct {
@@ -48,7 +45,7 @@ func EmailApi(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Println(t.EmailMessage)
-	send(EmailAddress, EmailPassword, t)
+	send(config.EmailAddress, config.EmailPassword, t)
 }
 
 // main ...
